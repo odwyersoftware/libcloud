@@ -1036,6 +1036,7 @@ class AzureBlobsStorageDriver(StorageDriver):
             headers = response.headers
 
         if response.status != httplib.CREATED:
+            logger.error('Failed to PUT object, %s %s', response, headers)
             raise LibcloudError(
                 'Unexpected status code, status_code=%s' % (response.status),
                 driver=self)
