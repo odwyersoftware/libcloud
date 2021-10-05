@@ -20,6 +20,7 @@ import hashlib
 import hmac
 import os
 import binascii
+import logging
 from datetime import datetime, timedelta
 
 from libcloud.utils.py3 import ET
@@ -81,6 +82,7 @@ AZURE_STORAGE_CDN_URL_START_MINUTES = float(
 AZURE_STORAGE_CDN_URL_EXPIRY_HOURS = float(
     os.getenv('LIBCLOUD_AZURE_STORAGE_CDN_URL_EXPIRY_HOURS', '24')
 )
+logger = logging.getLogger(__name__)
 
 
 class AzureBlobLease(object):
